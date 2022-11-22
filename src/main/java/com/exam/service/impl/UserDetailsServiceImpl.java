@@ -8,23 +8,23 @@ import org.springframework.stereotype.Service;
 
 import com.exam.model.User;
 import com.exam.repo.UserRepository;
+
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-	
+
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
-		User user=this.userRepository.findByUsername(username);
-		
-		if(user==null)
-		{
+		User user = this.userRepository.findByUsername(username);
+
+		if (user == null) {
 			System.out.println("User not fount!!");
 			throw new UsernameNotFoundException("user not found!!");
 		}
-		return user ;
+		return user;
 	}
 
 }

@@ -34,12 +34,15 @@ public class UserController {
 		
 		user.setProfile("default.png");
 		user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
+		
 		Set<UserRole> roles=new HashSet<>();
+		
 		Role role=new Role();
 		role.setRoleId(23L);
 		role.setRoleName("NORMAL");
 	
 		UserRole userRole=new UserRole();
+		
 		userRole.setUser(user);
 		userRole.setRole(role);
 		
@@ -65,5 +68,7 @@ public class UserController {
 		
 		
 	}
+	
+	
 	
 }

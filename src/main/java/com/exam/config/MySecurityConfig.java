@@ -12,8 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.exam.service.impl.UserDetailsServiceImpl;
@@ -50,7 +48,8 @@ public BCryptPasswordEncoder passwordEncoder() {
 			.cors()
 			.disable()
 			.authorizeRequests()
-			.antMatchers("/generate-token","/user/").permitAll()
+				.antMatchers("/generate-token", "/user/",
+						"/product/**").permitAll()
 			.antMatchers(HttpMethod.OPTIONS).permitAll()
 			.anyRequest().authenticated()
 			.and()

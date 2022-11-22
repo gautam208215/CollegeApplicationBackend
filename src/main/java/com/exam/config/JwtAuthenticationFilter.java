@@ -31,7 +31,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter{
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		final String requestTokenHeader= request.getHeader("Authorization");
-		System.out.println(requestTokenHeader);
+		System.out.println("header " + requestTokenHeader);
 		String username=null;
 		String jwtToken=null;
 		
